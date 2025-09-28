@@ -1,0 +1,72 @@
+// -*- mode: jsonc -*-
+{
+    "height": 30, 
+    "spacing": 0,  
+
+    "modules-left": [
+        "river/tags"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "battery"
+    ],
+
+    "river/tags": {
+        "num-tags": 9,
+    },
+
+    "clock": {
+    "interval": 1, // Update interval in seconds
+    "format": " {:%H:%M}", // Display time with clock icon (HH:MM)
+    "format-alt": "󰃰 {:%Y-%m-%d %H:%M:%S}", // Alternate format with date and seconds
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %d, %Y | %H:%M:%S}", // Full date and time in tooltip
+    "max-length": 25
+    },
+
+    "battery": {
+    "bat": "BAT1", // Replace with your battery name, e.g., BAT0 or BAT1
+    "interval": 10, // Update interval in seconds
+    "states": {
+        "critical": 15,
+        "warning": 30,
+        "good": 60
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": "󱐋 {capacity}%",
+    "format-full": "󱟦 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󱟤", "󱟥", "󱟦", "󱟧", "󱟨"], // NerdFonts battery icons
+    "tooltip": true,
+    "tooltip-format": "{capacity}% ({time})",
+    "max-length": 25
+    },
+    "cpu": {
+        "interval": 5, // Update interval in seconds
+        "format": "󰍛 {usage}%", 
+        "states": {
+            "high": 80 // Threshold for high CPU usage
+        },
+        "tooltip": true,
+        "tooltip-format": "CPU Usage: {usage}%",
+        "max-length": 25 
+    },
+    "memory": {
+        "interval": 5, // Update interval in seconds
+        "format": "󰘚 {used:0.1f}G",
+        "states": {
+            "high": 80 // Threshold for high RAM usage
+        },
+        "tooltip": true,
+        "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G ({percentage}%)",
+        "max-length": 25 
+    },
+    "river/tags": {
+        "hide-vacant": true
+    }
+}

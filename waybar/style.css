@@ -1,0 +1,176 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+}
+
+#tags button {
+    font-family: "JetBrainsMono Nerd Font", monospace; 
+    font-size: 15px; 
+    font-weight: bold;
+    color: #ffffff;
+    background: transparent;
+    border-radius: 0px; 
+    padding: 0 8px;
+    margin: 0 4px;
+}
+
+#tags button.focused {
+    border-color: #ffffff; 
+    color: #ffffff;
+}
+
+#tags button.urgent {
+    border-color: #e11d48; /* Subtle red for urgency */
+    color: #f43f5e; /* Soft red text */
+    font-weight: 600; /* Bolder for urgency */
+}
+
+/* Handle overlapping states with precedence */
+#tags button.occupied.focused {
+    border-color: #ffffff; /* Focused takes precedence */
+    color: #ffffff;
+    font-weight: 500;
+}
+
+#tags button.occupied.urgent {
+    border-color: #e11d48; /* Urgent takes precedence */
+    color: #f43f5e;
+    font-weight: 600;
+}
+
+#tags button.focused.urgent {
+    border-color: #e11d48; /* Urgent takes precedence */
+    color: #f43f5e;
+    font-weight: 600;
+}
+
+#tags button.occupied.focused.urgent {
+    border-color: #e11d48; /* Urgent remains dominant */
+    color: #f43f5e;
+    font-weight: 600;
+}
+
+#clock {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 16px;
+    margin: 0 5px;
+    border-radius: 0px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+#clock.alt {
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+#clock tooltip {
+    background-color: #1e1e2e;
+    color: #ffffff;
+    border: 1px solid #3a3a4a;
+    border-radius: 4px;
+    font-size: 11px;
+    padding: 4px 8px;
+}
+
+
+#battery {
+    font-family: "JetBrainsMono Nerd Font", monospace; /* Matches clock and tags font */
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 16px; /* Matches clock spacing */
+    margin: 0 0px; /* Matches clock and tags spacing */
+    border-radius: 0px; /* Subtle rounded corners */
+    transition: all 0.2s ease; /* Smooth, understated transitions */
+}
+
+#battery.charging,
+#battery.plugged {
+    border-color: #6b7280; /* Muted grey-blue for charging */
+    color: #d1d5db; /* Lighter grey for contrast */
+}
+
+#battery.full {
+    border-color: #9ca3af; /* Light grey for full */
+    color: #ffffff; /* Pure white for prominence */
+}
+
+#battery.critical {
+    border-color: #e11d48; /* Subtle red for critical */
+    color: #f43f5e; /* Soft red text */
+    font-weight: 600; /* Bolder for urgency */
+}
+
+#battery.warning {
+    border-color: #9ca3af; /* Light grey for warning */
+    color: #d1d5db; /* Lighter grey for contrast */
+    font-weight: 500; /* Slightly bolder */
+}
+
+#battery.good {
+    border-color: #6b7280; /* Muted grey-blue for good */
+    color: #d1d5db; /* Lighter grey for consistency */
+}
+
+/* Combined states with charging */
+#battery.charging.critical,
+#battery.plugged.critical {
+    border-color: #e11d48; /* Critical takes precedence */
+    color: #f43f5e;
+    font-weight: 600;
+}
+
+#battery.charging.warning,
+#battery.plugged.warning {
+    border-color: #9ca3af; /* Warning takes precedence */
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+#battery.charging.good,
+#battery.plugged.good {
+    border-color: #6b7280; /* Good takes precedence */
+    color: #d1d5db;
+}
+
+#cpu {
+    font-family: "JetBrainsMono Nerd Font", monospace; /* Matches other modules */
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff; 
+    padding: 0 16px;
+    margin: 0 0px;
+    border-radius: 0px;
+}
+
+#cpu.high {
+    border-color: #e11d48; /* Subtle red for high usage */
+    color: #f43f5e; /* Soft red text */
+    font-weight: 600; /* Bolder for emphasis */
+}
+
+#memory {
+    font-family: "JetBrainsMono Nerd Font", monospace; /* Matches other modules */
+    font-size: 15px; 
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0 16px; 
+    margin: 0 0px; 
+    border-radius: 0px; 
+}
+
+#memory.high {
+    border-color: #e11d48; /* Subtle red for high usage */
+    color: #f43f5e; /* Soft red text */
+    font-weight: 600; /* Bolder for emphasis */
+}
+
+
+#waybar {
+    color: rgba(255, 255, 255, 0.6); 
+    background-color: rgba(0, 0, 0, 0.7);
+}
